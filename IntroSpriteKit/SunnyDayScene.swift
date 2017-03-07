@@ -21,6 +21,10 @@ class SunnyDayScene: SKScene, SKPhysicsContactDelegate {
   let catStridingTexture: SKTexture = SKTexture(imageNamed: "moving_kitty_2")
   let fishTexture: SKTexture = SKTexture(imageNamed: "fish")
   
+  let scoreLabel: SKLabelNode = SKLabelNode(text: "Score")
+  let scorePointsLabel: SKLabelNode = SKLabelNode(text: "0")
+  let flameParticleEmitter: SKEmitterNode = SKEmitterNode(fileNamed: "fireball.sks")!
+  
   var catTextureAtlas: SKTextureAtlas?
   
   var backgroundNode: SKSpriteNode?
@@ -100,6 +104,11 @@ class SunnyDayScene: SKScene, SKPhysicsContactDelegate {
     let constraintX = SKConstraint.positionX(SKRange(lowerLimit: 0.0 + (0.5 * self.catNode!.size.width),
                                                      upperLimit: self.view!.frame.maxX - (0.5 * self.catNode!.size.width)))
     catNode?.constraints = [constraintY, constraintX]
+    
+    flameParticleEmitter.name = "kitty_on_fire"
+    flameParticleEmitter.targetNode = self.catNode
+    flameParticleEmitter.position = CGPoint(x: 0.0, y: -50.0)
+    catNode?.addChild(flameParticleEmitter)
   }
   
   required init?(coder aDecoder: NSCoder) {
