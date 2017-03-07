@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142066871E6E20BF00C4371B /* moving_kitty.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 142066861E6E20BF00C4371B /* moving_kitty.atlas */; };
 		144CC3941E6DB7E80076B241 /* SunnyDayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144CC3931E6DB7E80076B241 /* SunnyDayScene.swift */; };
 		144CC3961E6DBE320076B241 /* cat_twit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 144CC3951E6DBE320076B241 /* cat_twit.wav */; };
 		14F358B41E6DB087000CA941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F358B31E6DB087000CA941 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142066861E6E20BF00C4371B /* moving_kitty.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving_kitty.atlas; sourceTree = "<group>"; };
 		144CC3931E6DB7E80076B241 /* SunnyDayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunnyDayScene.swift; sourceTree = "<group>"; };
 		144CC3951E6DBE320076B241 /* cat_twit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cat_twit.wav; sourceTree = "<group>"; };
 		14F358B01E6DB087000CA941 /* IntroSpriteKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroSpriteKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +55,7 @@
 				14F358B51E6DB087000CA941 /* GameScene.sks */,
 				14F358B71E6DB087000CA941 /* Actions.sks */,
 				14F358BD1E6DB087000CA941 /* Main.storyboard */,
+				142066861E6E20BF00C4371B /* moving_kitty.atlas */,
 				14F358C01E6DB087000CA941 /* Assets.xcassets */,
 				14F358C21E6DB087000CA941 /* LaunchScreen.storyboard */,
 				14F358C51E6DB087000CA941 /* Info.plist */,
@@ -150,6 +153,7 @@
 				14F358B61E6DB087000CA941 /* GameScene.sks in Resources */,
 				14F358C11E6DB087000CA941 /* Assets.xcassets in Resources */,
 				14F358C41E6DB087000CA941 /* LaunchScreen.storyboard in Resources */,
+				142066871E6E20BF00C4371B /* moving_kitty.atlas in Resources */,
 				14F358B81E6DB087000CA941 /* Actions.sks in Resources */,
 				144CC3961E6DBE320076B241 /* cat_twit.wav in Resources */,
 			);

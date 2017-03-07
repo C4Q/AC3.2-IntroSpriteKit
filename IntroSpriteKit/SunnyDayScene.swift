@@ -15,6 +15,8 @@ class SunnyDayScene: SKScene {
   let catStandingTexture: SKTexture = SKTexture(imageNamed: "moving_kitty_1")
   let catStridingTexture: SKTexture = SKTexture(imageNamed: "moving_kitty_2")
   
+  var catTextureAtlas: SKTextureAtlas?
+  
   var backgroundNode: SKSpriteNode?
   var catNode: SKSpriteNode?
 
@@ -23,25 +25,46 @@ class SunnyDayScene: SKScene {
     
     print("init")
     self.backgroundColor = .gray
-    
-    // initializing and setting the background node's texture
-    self.backgroundNode = SKSpriteNode(texture: backgroundTexture)
-    self.backgroundNode?.anchorPoint = self.anchorPoint
-    
-    self.catNode = SKSpriteNode(texture: catStandingTexture)
-    self.catNode!.anchorPoint = self.backgroundNode!.anchorPoint
-    self.catNode!.setScale(0.4)
-    
-    self.addChild(self.backgroundNode!)
-    self.backgroundNode!.addChild(self.catNode!)
-  }
+
+      }
   
   override func didMove(to view: SKView) {
     print("DidMove")
     
-    let walkingAnimation = SKAction.animate(with: [catStandingTexture, catStridingTexture], timePerFrame: 0.5)
+    guard
+      let cat1: UIImage = UIImage(named: "moving_kitty_1"),
+      let cat2: UIImage = UIImage(named: "moving_kitty_2")
+      else { return }
+    
+//    self.catTextureAtlas = SKTextureAtlas(dictionary: [ "cat1" : cat1, "cat2" : cat2])
+    
+    
+    self.catTextureAtlas = SKTextureAtlas(named: "moving_kitty")
+    let catStand = self.catTextureAtlas!.textureNamed("moving_kitty_1")
+    let catStride = self.catTextureAtlas!.textureNamed("moving_kitty_2")
+    
+    // initializing and setting the background node's texture
+    self.backgroundNode = SKSpriteNode(texture: backgroundTexture)
+    self.backgroundNode?.anchorPoint = self.anchorPoint
+    self.backgroundNode?.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
+    
+    
+//    self.catNode = SKSpriteNode(texture: self.catTextureAtlas!.textureNamed("cat1"))
+    self.catNode = SKSpriteNode(texture: catStand)
+    self.catNode!.anchorPoint = self.backgroundNode!.anchorPoint
+    self.catNode!.setScale(0.2)
+    
+    self.addChild(self.backgroundNode!)
+    self.addChild(self.catNode!)
+
+    
+//    let walkingAnimation = SKAction.animate(with: catTextureAtlas!.textureNames.map{ catTextureAtlas!.textureNamed($0) }, timePerFrame: 0.5)
+    let walkingAnimation = SKAction.animate(with: [catStand, catStride], timePerFrame: 0.5)
     let infiniteAnimation = SKAction.repeatForever(walkingAnimation)
     
+    self.catNode?.zPosition = 100
+    
+
     catNode?.run(infiniteAnimation)
   }
   
